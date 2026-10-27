@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Allenamento colloquio IQOS</title>
+<style>
+:root{--bg:#f6f5f2;--card:#fff;--tx:#1d1d1f;--mu:#6b6b70;--ac:#2b6cb0;--ok:#1f8a4c;--ko:#c0392b;--bd:#e3e1dc}
+@media (prefers-color-scheme:dark){:root{--bg:#141416;--card:#1f1f23;--tx:#ececef;--mu:#9a9aa2;--ac:#6aa7ec;--ok:#45c27a;--ko:#ef6b5c;--bd:#33333a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 -apple-system,system-ui,sans-serif}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--bd);z-index:1}
+h1{font-size:18px;margin:0;padding:12px 16px 4px}
+nav{display:flex;gap:6px;padding:6px 16px 10px;overflow-x:auto}
+nav button{flex:1;white-space:nowrap}
+main{max-width:640px;margin:0 auto;padding:16px}
+button{font:inherit;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:10px;padding:10px 12px;cursor:pointer;text-align:left}
+nav button.on,.pri{background:var(--ac);color:#fff;border-color:var(--ac)}
+.pri{text-align:center;width:100%;margin-top:12px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;margin-bottom:12px}
+.list button{display:block;width:100%;margin-bottom:8px}
+.list small,.mu{color:var(--mu)}
+.cl{background:var(--card);border-left:4px solid var(--ac);border-radius:10px;padding:12px;margin-bottom:12px;font-style:italic}
+.opts button{display:block;width:100%;margin-bottom:8px}
+.opts button.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,var(--card))}
+.opts button.ko{border-color:var(--ko);background:color-mix(in srgb,var(--ko) 14%,var(--card))}
+.fb{padding:10px 12px;border-radius:10px;margin-top:4px;border:1px solid var(--bd)}
+.fb.ok{border-color:var(--ok)}.fb.ko{border-color:var(--ko)}
+.timer{font-size:40px;font-weight:700;text-align:center;margin:8px 0}
+label{display:block;margin:6px 0}
+h2{font-size:17px;margin:0 0 8px}
+details{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin-bottom:10px}
+summary{font-weight:600;cursor:pointer}
+ul{padding-left:20px;margin:8px 0}
+</style>
+</head>
+<body>
+<header>
+<h1>Allenamento colloquio IQOS</h1>
+<nav>
+<button data-t="rp" class="on">Role play</button>
+<button data-t="voce">A voce</button>
+<button data-t="quiz">Quiz</button>
+<button data-t="big">Bigino</button>
+</nav>
+</header>
+<main>
+<section id="rp"></section>
+<section id="voce" hidden></section>
+<section id="quiz" hidden></section>
+<section id="big" hidden>
+<p class="mu">Da ripassare domattina. Tocca un titolo per aprirlo.</p>
+<details open><summary>Il percorso di vendita</summary><ul>
+<li><b>Accoglienza</b>, sorriso, presentati.</li>
+<li><b>YAP prima di tutto</b>: se sembra sotto i 35 anni chiedi il documento, <u>prima</u> di dare qualsiasi informazione.</li>
+<li><b>Intervista</b>: fuma? cosa e quanto? cosa gli piace del momento? cosa cerca (gusto, prezzo, semplicità, design)?</li>
+<li><b>Proposta</b> giusta per il profilo (vedi segmenti).</li>
+<li><b>Dimostrazione / prova</b> e risposta alle obiezioni.</li>
+<li><b>Chiusura</b>: acquisto, registrazione IQOS CLUB, spiegazione d'uso.</li>
+</ul></details>
+<details><summary>YAP: età e documenti</summary><ul>
+<li>Sembra sotto i 35 (cliente <b>o accompagnatore</b>) → documento.</li>
+<li>Validi: carta d'identità fisica (CIE, cartacea fino al 31/01/2027), patente fisica, patente su <b>App IO</b>, passaporto.</li>
+<li>Non validi: foto, screenshot, altre tessere.</li>
+<li>Minorenne, rifiuta o non ha il documento → <b>interrompi subito</b> l'interazione.</li>
+<li>Mai vendere se è per un minorenne o se la maggiore età non è certa.</li>
+<li>Minorenni non entrano in store: spiega con gentilezza, invita ad aspettare fuori o tornare. Se proprio non possono, eccezionalmente entrano, ma senza Guided Trial in corso nello stesso spazio. Neonato in braccio: sì, se nessuno sta usando prodotti. Nel dubbio: buon senso e responsabile.</li>
+</ul></details>
+<details><summary>Chi NON è il nostro cliente</summary><ul>
+<li>Non fumatori ed ex fumatori: chiedi perché sono venuti, spiega che gli stick contengono nicotina che crea dipendenza, <b>non proporre la prova</b> e non spingere.</li>
+<li>Ai maggiorenni si può vendere, tranne a chi compra per un minorenne.</li>
+<li>Donne incinte, patologie cardiovascolari, epilessia, diabete: massima sensibilità, rimanda al medico, nessuna opinione personale.</li>
+</ul></details>
+<details><summary>Segmenti → prodotto</summary><ul>
+<li><b>Experience Explorers</b> (fino a 29, curiosi) → ILUMA i + <b>LEVIA</b> 5,50€</li>
+<li><b>Tobacco Progressives</b> (30–49) → ILUMA i + <b>TEREA</b> 5,50€</li>
+<li><b>Attenti al prezzo</b> → ILUMA i + <b>DELIA</b> 5,00€</li>
+<li><b>Rooted LAS</b> (30+, abitudinari) → <b>BONDS + Blends</b> 4,50€</li>
+<li>DELIA: priorità 1 fumatori di sigarette, priorità 2 chi usa scalda-tabacco della concorrenza.</li>
+<li>ZYN: soluzione <b>complementare</b> (es. dove non si può fumare).</li>
+</ul></details>
+<details><summary>ILUMA i</summary><ul>
+<li>Smartcore Induction System: niente lamina nel dispositivo, l'elemento riscaldante (acciaio) è <b>dentro lo stick</b> → niente pulizia.</li>
+<li><b>PRIME 89€</b> (alluminio, design), <b>MID 59€</b>, <b>ONE 29€</b> (corpo unico).</li>
+<li>PRIME e MID: touch screen, Pause Mode (fino a 8 min), FlexBattery. Tutti: autostart.</li>
+<li>Un utilizzo: 14 tiri o 6 minuti. Fino a 3 consecutivi (2 se usi la pausa).</li>
+<li>Caricatore: 20 utilizzi per carica. Ricarica completa ~2h15 (ONE 1h30).</li>
+<li>Alimentatore non incluso; sconsigliato caricare in macchina (dirlo solo se chiede).</li>
+<li>FlexBattery / modalità Eco (da App IQOS): <b>solo se chiede</b> della durata batteria.</li>
+<li>Touch: 0 = scarico; E = errore → reset. Tocca 5 volte per cambiare l'intensità dei led.</li>
+<li>Luci holder: <b>gialla</b> = scarico, ricarica; <b>rossa</b> = metti l'holder nel caricatore e resetta il caricatore; <b>bianca doppia</b> = fuori temperatura (0–40°C).</li>
+<li>Vecchi (2.4, 3 Duo, 3 Multi, HEETS, FIIT): lamina, da pulire, obsoleti.</li>
+</ul></details>
+<details><summary>Stick: TEREA, DELIA, LEVIA</summary><ul>
+<li>TEREA 5,50€ e DELIA 5,00€: tabacco e nicotina. DELIA: 5 varianti (2 fresche, 3 tabaccose).</li>
+<li>LEVIA 5,50€: <b>senza tabacco</b>, ingredienti di origine vegetale con nicotina, gusti mentolati e fruttati. Base di cellulosa con aromi, glicerina, stabilizzante.</li>
+<li>Più intenso il colore, più intenso il gusto; nicotina sempre uguale.</li>
+<li>Pacchetto LEVIA in alluminio per la freschezza: aperto, consumalo entro 7 giorni.</li>
+</ul></details>
+<details><summary>BONDS + Blends</summary><ul>
+<li>Dispositivo 19€, corpo unico, per Rooted LAS. Blends 4,50€.</li>
+<li>RoundHeat: scalda <b>dall'esterno</b>. Funziona solo con Blends (Red 9, Gold 6, Silver 4, Green 6).</li>
+<li>Gusto autentico, nessun limite di tiri, 5 minuti per uso, 3 consecutivi, ~25 utilizzi a carica, niente pulizia: inserisci lo stick e premi il tasto.</li>
+<li>Vibrazioni: 1 avvio, 2 tiro di prova, 3 pronto, 4 spegnimento.</li>
+<li>Costa meno ma è un prodotto di qualità.</li>
+<li>Porta un amico: inviti fino al 9/12, l'amico compra e registra entro il 15/12; 5€ di buono Q8 a testa, max 5 amici (25€).</li>
+</ul></details>
+<details><summary>ZYN</summary><ul>
+<li>Bustina tra labbro e gengiva, da 5 fino a 30 minuti. Il formicolio è normale.</li>
+<li>Mini (1,5 / 3 / 6 mg): asciutte, rilascio graduale. Regular (11 mg): umide, rilascio immediato, gusto più intenso.</li>
+<li>Prima prova: Mini 3 mg (negli appunti: chi inizia 1,5 mg). Cool Mint per i più giovani, altrimenti Peach, Citrus o Coffee.</li>
+<li>Guided Trial: 10–15 min di introduzione, 5 min di prova, 1 bustina.</li>
+</ul></details>
+<details><summary>VEEV</summary><ul>
+<li><b>inPRIME</b> 11€: induzione AdvanceVape, pod ACCENTS 9,90€ (nicotina da foglie di tabacco, made in Switzerland), 1400 tiri, Responsive Draw, carica &lt;40 min.</li>
+<li><b>ONE</b>: riscaldamento in ceramica, 1000 tiri, carica &lt;45 min, 5 colori in alluminio, si cambia solo il pod.</li>
+<li>I pod <b>non</b> sono intercambiabili tra i due VEEV. Garanzia 2 anni sui guasti elettrici.</li>
+<li>Rosso e bianco lampeggiante = liquido basso: tenerlo dritto. Controlla che i fori d'aria laterali non siano ostruiti. Bianco lampeggiante senza vapore = scarico o temperatura sotto 0° / sopra 30°.</li>
+</ul></details>
+<details><summary>Post vendita e IQOS CLUB</summary><ul>
+<li>Soddisfatti o rimborsati: nuovo cliente (LAS), entro <b>30 giorni</b>.</li>
+<li>Cambio entro 3 giorni a confezione chiusa: <b>non proporlo</b> di tua iniziativa.</li>
+<li>Sostituzione solo in garanzia; assistenza sempre. Se il dispositivo non è registrato a suo nome serve telefono o email dell'intestatario.</li>
+<li>App IQOS CLUB: cerca il cliente, controlla i voucher, compila la SURVEY.</li>
+<li>IQOS CLUB a badge (dal 2 luglio): community, acquisto ILUMA i, check-in agli eventi. Badge → voucher su iqos.com e The Collection (Feltrinelli, Zalando, Q8), max 75€.</li>
+</ul></details>
+<details><summary>Salute: solo se chiede</summary><ul>
+<li>Non sono prodotti per smettere di fumare. La scelta migliore è non fumare.</li>
+<li>Le alternative senza combustione emettono in media il <b>95% in meno di sostanze dannose</b>: NON vuol dire 95% di rischio in meno, e non sono senza rischi.</li>
+<li>La nicotina crea dipendenza ma non è la causa principale delle malattie legate al fumo.</li>
+<li>Rimanda al medico e a pmiscience.com. Nessuna opinione personale.</li>
+</ul></details>
+<details><summary>PMI e store</summary><ul>
+<li>Obiettivo: un futuro senza fumo. Si rivolge a chi altrimenti continuerebbe a fumare.</li>
+<li>Oltre 180 paesi. Italia: 2014 tabaccherie, 2017 store a Milano, 2019 prime 3 boutique, 2021 Alpha Omega partner esclusivo.</li>
+<li>In store: no mangiare, no usare IQOS, no felpe sportive o loghi.</li>
+</ul></details>
+</section>
+</main>
+<script>
+// Ogni passo: battuta del cliente + opzioni [testo, giusta?, spiegazione]
+const SC=[
+{n:"Ragazzo curioso (sembra giovane)",d:"Experience Explorer, YAP con foto del documento",s:[
+{c:"Ciao! Ho visto in vetrina quello nuovo con lo schermo, me lo fai vedere?",o:[
+["Ciao, benvenuto! Prima di tutto posso vedere un documento? Lo chiediamo a chi sembra avere meno di 35 anni.",1,"Giusto: il controllo età viene prima di qualsiasi informazione."],
+["Certo! È l'ILUMA i PRIME, guarda che bello.",0,"No: sembra sotto i 35, non puoi dare nessuna informazione prima del documento."],
+["Quanti anni hai?",0,"La risposta a voce non basta: serve un documento valido."]]},
+{c:"Ho solo la foto della carta d'identità sul telefono, va bene lo stesso?",o:[
+["Mi dispiace, la foto non è valida: servono carta d'identità o patente fisiche, la patente su App IO o il passaporto. Quando torni col documento ti mostro tutto volentieri.",1,"Esatto: foto e screenshot non valgono. Interrompi con gentilezza e invita a tornare."],
+["Va bene, fammela vedere.",0,"No: le foto non sono documenti validi."],
+["Dai, si vede che sei maggiorenne.",0,"Mai: se la maggiore età non è certa non si va avanti."]]},
+{c:"(Torna con la carta d'identità: 24 anni) Eccomi! Fumo sigarette, una decina al giorno, ma mi piace provare cose nuove.",o:[
+["Grazie! Cosa ti piace del momento della sigaretta? Cerchi il gusto del tabacco o qualcosa di diverso, tipo fresco o fruttato?",1,"Bene: prima intervisti, poi proponi."],
+["Allora ti do le TEREA, sono le più vendute.",0,"Hai saltato l'intervista: proponi solo dopo aver capito cosa cerca."],
+["Lo sai che con questo fai il 95% di danni in meno?",0,"Sbagliato due volte: la salute è un tema solo reattivo, e il dato è 95% in meno di sostanze dannose, non di danni."]]},
+{c:"Mi piacciono i gusti freschi e fruttati. E il design per me conta un sacco.",o:[
+["Ti propongo ILUMA i PRIME, in alluminio con touch screen, con gli stick LEVIA: senza tabacco, con nicotina, gusti mentolati e fruttati, 5,50€.",1,"Perfetto per un Experience Explorer: LEVIA + design."],
+["BONDS con le Blends, costa poco ed è semplice.",0,"BONDS è per i Rooted LAS, non per un giovane curioso attento al design."],
+["ZYN Regular 11 mg.",0,"ZYN è complementare e il Regular è il più intenso: non è la prima proposta per lui."]]},
+{c:"Ok, mi hai convinto, lo prendo!",o:[
+["Ottimo! Lo registriamo nell'IQOS CLUB: hai garanzia, assistenza e badge che diventano voucher. Poi ti faccio vedere come si usa.",1,"Chiusura completa: acquisto, registrazione, spiegazione d'uso."],
+["Perfetto, ti spiego anche la FlexBattery e la modalità Eco.",0,"FlexBattery solo se chiede della batteria."],
+["Ecco lo scontrino, ciao!",0,"Manca la registrazione all'IQOS CLUB e la spiegazione d'uso."]]}]},
+
+{n:"Mamma con figlio di 15 anni",d:"Minorenne in store e acquisto per un minore",s:[
+{c:"Buongiorno, sono con mio figlio, ha 15 anni. Volevo vedere l'IQOS.",o:[
+["Buongiorno! Per policy i minorenni non possono entrare in store. Può aspettarla fuori un momento, oppure potete tornare più tardi?",1,"Giusto: spieghi la policy con gentilezza e proponi un'alternativa."],
+["Venite pure, nessun problema.",0,"I minorenni non entrano in store."],
+["No, con un minorenne non può entrare. Arrivederci.",0,"Regola giusta, modo sbagliato: serve gentilezza e un'alternativa."]]},
+{c:"Non posso lasciarlo fuori da solo e non posso tornare un'altra volta...",o:[
+["Capisco. Eccezionalmente potete entrare, purché non ci sia una Guided Trial in corso qui; se ho dubbi coinvolgo il mio responsabile.",1,"Esatto, è l'eccezione prevista. Nel dubbio: buon senso e responsabile."],
+["Allora mi dispiace, non posso aiutarla.",0,"C'è un'eccezione prevista se proprio non possono tornare."],
+["Va bene, gli faccio provare anche a lui il dispositivo.",0,"Mai, per nessun motivo."]]},
+{c:"In realtà... è per lui. Ha già iniziato a fumare, almeno così è meno peggio.",o:[
+["Mi dispiace, ma non posso vendere se l'acquisto è per un minorenne.",1,"Esatto: mai vendere a chi compra per un minore."],
+["Se lo paga lei e lei è maggiorenne va bene.",0,"No: conta per chi è il prodotto. Per un minore non si vende."],
+["Allora gli consiglio LEVIA, che è senza tabacco.",0,"Gravissimo: nessuna vendita né consiglio per un minorenne."]]}]},
+
+{n:"Signore con amico giovane",d:"YAP sull'accompagnatore",s:[
+{c:"(Signore sui 55 anni, con un ragazzo che sembra avere 20 anni) Buongiorno, vorremmo vedere l'ILUMA.",o:[
+["Buongiorno! Prima di iniziare, posso chiedere un documento al ragazzo? Lo chiediamo a chi sembra avere meno di 35 anni, anche agli accompagnatori.",1,"Giusto: il documento si chiede anche a chi accompagna."],
+["Certo, il signore è chiaramente adulto: andiamo.",0,"Anche l'accompagnatore che sembra sotto i 35 deve mostrare il documento."],
+["Chiedo il documento al signore.",0,"Il signore è chiaramente adulto: il documento va chiesto al ragazzo."]]},
+{c:"Ragazzo: \"Io il documento non ce l'ho dietro, ma sono solo qui per accompagnarlo.\"",o:[
+["Mi dispiace, senza documento non posso proseguire. Se il ragazzo può aspettare fuori o tornate con il documento, sono a vostra disposizione.",1,"Senza verifica certa dell'età non si va avanti."],
+["Va bene, tanto compra il signore.",0,"No: la policy vale anche per l'accompagnatore."],
+["Mi dici la data di nascita?",0,"A voce non basta, serve un documento valido."]]}]},
+
+{n:"Non fumatore incuriosito",d:"Il cliente sbagliato",s:[
+{c:"(30 anni, documento ok) Io non fumo, ma il mio collega ce l'ha e mi sembra figo.",o:[
+["Grazie della sincerità! Posso chiederti cosa ti ha portato qui? Ti dico con trasparenza: gli stick contengono nicotina, che crea dipendenza. Sono prodotti pensati per chi fuma.",1,"Giusto: chiedi il motivo e informi sulla nicotina."],
+["Te lo faccio provare, così vedi com'è!",0,"Ai non fumatori non si propone la prova."],
+["Fa meno male delle sigarette, quindi va bene anche per te.",0,"Sbagliato: non è per chi non fuma e non è un'informazione corretta."]]},
+{c:"Ah, non lo sapevo. Quindi me lo sconsigli?",o:[
+["La scelta migliore è non fumare. Questi prodotti sono per chi altrimenti continuerebbe a fumare, quindi non te lo propongo.",1,"Esatto, coerente con la missione PMI. Non spingi la vendita."],
+["Dipende, se ti piace prova lo stesso.",0,"Non si incoraggia un non fumatore."],
+["Prendi ZYN allora, che non è fumo.",0,"Anche ZYN contiene nicotina: non si propone a chi non fuma."]]}]},
+
+{n:"Fumatore abitudinario",d:"Rooted LAS → BONDS",s:[
+{c:"(Signore sui 60 anni) Buongiorno. Mia figlia insiste che provi una di queste cose, ma io sono abituato alle mie sigarette.",o:[
+["Buongiorno! Mi racconta cosa fuma di solito e cosa le piace della sua sigaretta?",1,"Ottimo: intervista aperta, mette a proprio agio."],
+["Le mostro l'ILUMA i PRIME con touch screen e Pause Mode!",0,"Proposta prima dell'intervista, e la tecnologia spaventa chi è abitudinario."],
+["Guardi che fumare fa male, sua figlia ha ragione.",0,"Nessuna predica né opinione personale."]]},
+{c:"Marlboro rosse, un pacchetto al giorno. Voglio il gusto vero del tabacco, niente complicazioni da pulire, e costano già troppo.",o:[
+["Allora le propongo BONDS con le Blends Red Classic: gusto di tabacco autentico, nessun limite di tiri, inserisce lo stick e preme il tasto, niente pulizia. Le Blends costano 4,50€.",1,"Perfetto: gusto, prezzo, semplicità, niente pulizia. È il profilo Rooted."],
+["ILUMA i PRIME con TEREA, è il nostro top di gamma.",0,"Non risponde a prezzo e semplicità."],
+["VEEV inPRIME, ha tantissimi gusti.",0,"Cerca il gusto del tabacco: il vaping non è la risposta."]]},
+{c:"Costa meno... sarà roba scadente, no?",o:[
+["Per niente: è un prodotto di qualità, il tabacco è lavorato in modo molto simile a quello delle sigarette. Costa meno ma il gusto c'è.",1,"Obiezione gestita con i punti giusti."],
+["Eh, un po' sì, ma per il prezzo va bene.",0,"Non sminuire mai il prodotto."],
+["Allora prenda l'ILUMA, così va sul sicuro.",0,"Hai abbandonato la proposta giusta alla prima obiezione."]]},
+{c:"Va bene, lo prendo. Anzi, magari lo dico anche a mio fratello.",o:[
+["Ottimo! Con Porta un amico lo invita entro il 9 dicembre, lui compra e registra entro il 15: avete 5€ di buono Q8 a testa, fino a 5 amici.",1,"Promo spiegata bene."],
+["Gli dica di venire, gli faccio uno sconto io.",0,"Niente sconti inventati: c'è la promo Porta un amico."],
+["Ok, arrivederci.",0,"Occasione persa: c'era la promo, e manca la registrazione."]]}]},
+
+{n:"Fumatrice attenta al prezzo",d:"ILUMA i ONE + DELIA",s:[
+{c:"(Donna sui 40, documento non necessario) Ciao, vorrei passare a qualcosa del genere, ma spendo già un sacco in sigarette.",o:[
+["Capisco. Quante ne fuma al giorno, e cosa cerca nel gusto: più tabaccoso o fresco?",1,"Bene, intervista su consumo e gusto."],
+["Il PRIME è il migliore, 89€ ben spesi.",0,"Ha appena detto che il prezzo conta."],
+["Le conviene smettere, allora.",0,"Nessuna predica."]]},
+{c:"Una quindicina. Mi piace il gusto del tabacco, ma ogni tanto anche qualcosa di fresco. E non voglio spendere tanto per il dispositivo.",o:[
+["Le propongo ILUMA i ONE, 29€, corpo unico e accensione automatica, con le DELIA a 5€: 5 varianti, 3 tabaccose e 2 fresche.",1,"Giusto: dispositivo economico + stick DELIA per chi guarda al prezzo."],
+["ILUMA i MID con LEVIA.",0,"LEVIA è senza tabacco: lei vuole il gusto del tabacco, e il prezzo pesa."],
+["BONDS con Blends.",0,"Possibile per il prezzo, ma lei vuole anche gusti freschi: DELIA ha le varianti fresche."]]},
+{c:"E poi se ho problemi con il dispositivo?",o:[
+["Registrandolo nell'IQOS CLUB ha garanzia e assistenza, e accumula badge che diventano voucher sconto.",1,"Bene: registrazione come valore per il cliente."],
+["Torna qui e glielo cambiamo.",0,"Sostituzione solo in garanzia: non promettere quello che non puoi."],
+["Le spiego la FlexBattery.",0,"Non c'entra con la domanda."]]}]},
+
+{n:"Utente di uno scalda-tabacco concorrente",d:"Tecnologia Smartcore",s:[
+{c:"(35 anni, documento ok) Uso già un altro scalda-tabacco, ma devo pulirlo sempre e lo stick a volte si rompe sulla lamina.",o:[
+["Con ILUMA i non c'è lamina: l'elemento riscaldante è dentro lo stick e il dispositivo lo scalda a induzione, quindi niente pulizia e niente stick rotti.",1,"Esatto: Smartcore Induction System contro la tecnologia a lamina."],
+["Eh, sono tutti uguali, bisogna pulirli.",0,"Falso: ILUMA i non richiede pulizia."],
+["Allora prenda lil SOLID Ez.",0,"Anche lil va pulito regolarmente."]]},
+{c:"Interessante. Che stick uso? Il prezzo conta, ma voglio un buon gusto.",o:[
+["Le DELIA a 5€: sono pensate proprio anche per chi arriva da altri scalda-tabacco, con 5 varianti tra tabaccose e fresche.",1,"DELIA: priorità 2 sono gli utenti HnB della concorrenza."],
+["Le Blends.",0,"Le Blends funzionano solo con BONDS."],
+["Le HEETS.",0,"HEETS sono obsolete e non vanno su ILUMA."]]}]},
+
+{n:"Cliente con ILUMA che lampeggia rosso",d:"Assistenza e garanzia",s:[
+{c:"Il mio ILUMA PRIME non va: l'holder lampeggia rosso.",o:[
+["Proviamo insieme: inseriamo l'holder nel caricatore e facciamo il reset del caricatore.",1,"Luce rossa sull'holder = holder nel caricatore + reset."],
+["È scarico, lo metta in carica.",0,"Scarico è la luce gialla."],
+["È rotto, glielo cambio subito.",0,"Prima la risoluzione del problema, e il cambio solo in garanzia."]]},
+{c:"Fatto, ma lampeggia ancora. Lo voglio nuovo.",o:[
+["Controllo nell'app IQOS CLUB il suo profilo e la registrazione: se è in garanzia procediamo con la sostituzione.",1,"Sostituzione solo in garanzia; l'assistenza si dà sempre."],
+["Ne prenda uno nuovo, tanto il PRIME costa 89€.",0,"Prima verifichi garanzia e registrazione."],
+["Mi dispiace, non possiamo fare niente.",0,"L'assistenza si dà sempre."]]},
+{c:"Però è registrato a nome di mia moglie.",o:[
+["Nessun problema: mi serve il numero di telefono o l'email con cui è registrata sua moglie.",1,"Esatto."],
+["Allora deve venire lei di persona.",0,"Basta il telefono o l'email dell'intestatario."],
+["Allora non è in garanzia.",0,"La garanzia resta: serve solo il dato dell'intestatario."]]}]},
+
+{n:"Cliente che vuole il rimborso",d:"Soddisfatti o rimborsati",s:[
+{c:"Ho comprato l'ILUMA i 20 giorni fa, è il mio primo, ma non mi trovo. Rivoglio i soldi.",o:[
+["Mi dispiace! Mi racconta cosa non la convince? Magari è un'impostazione o un gusto che possiamo cambiare.",1,"Prima capisci il problema: spesso si risolve con lo stick giusto o con una spiegazione."],
+["Le cambio il dispositivo con uno nuovo.",0,"Il cambio entro 3 giorni non si propone di tua iniziativa, e qui sono passati 20 giorni."],
+["Non si può, ormai l'ha usato.",0,"Falso: per un nuovo cliente c'è soddisfatti o rimborsati entro 30 giorni."]]},
+{c:"No, ci ho pensato bene: proprio non fa per me.",o:[
+["Va bene: essendo nuovo cliente ed entro 30 giorni ha diritto al rimborso, procediamo.",1,"Esatto: soddisfatti o rimborsati, 30 giorni. Il dispositivo poi non si rivende."],
+["Le faccio un voucher invece del rimborso.",0,"Ha diritto al rimborso: non sostituirlo con altro."],
+["Lo rimettiamo in vendita e le ridiamo i soldi.",0,"Il dispositivo reso non si rivende."]]}]},
+
+{n:"Fumatore che lavora in ufficio",d:"ZYN complementare e Guided Trial",s:[
+{c:"(Utente IQOS, 42 anni) In ufficio non posso usare niente per 8 ore, è un incubo.",o:[
+["Per quei momenti potrebbe interessarle ZYN: bustine di nicotina senza fumo né vapore, da tenere tra labbro e gengiva. Vuole provarlo con me?",1,"ZYN come soluzione complementare."],
+["Allora le serve un VEEV.",0,"Anche il VEEV non si può usare dove è vietato."],
+["Usi l'IQOS di nascosto, non si sente.",0,"Mai."]]},
+{c:"Va bene, proviamo. Quale mi dai?",o:[
+["Una Mini 3 mg al gusto Peach, Citrus o Coffee: la Mini è asciutta e rilascia gradualmente. La tiene tra labbro e gengiva da 5 fino a 30 minuti.",1,"Prima prova corretta per un adulto non giovanissimo."],
+["Una Regular 11 mg, così la sente.",0,"Troppo intensa per la prima prova."],
+["Una Cool Mint 6 mg.",0,"Cool Mint è per i più giovani e 6 mg è alto per iniziare."]]},
+{c:"Mi pizzica un po' la gengiva, è normale?",o:[
+["Sì, il formicolio è normale: è il rilascio di aroma e nicotina.",1,"Esatto."],
+["No, la tolga subito.",0,"Il formicolio è normale."],
+["Strano, sarà difettosa.",0,"Il formicolio è normale."]]}]},
+
+{n:"Domande sulla salute",d:"Rispondere senza sbagliare",s:[
+{c:"(Cliente fumatore, documento ok) Ma onestamente: fa meno male delle sigarette?",o:[
+["La scelta migliore è non fumare. Le alternative senza combustione emettono in media il 95% in meno di sostanze dannose; questo però non vuol dire 95% di rischio in meno, e non sono senza rischi. Per approfondire c'è pmiscience.com, o il suo medico.",1,"Risposta completa e corretta."],
+["Sì, fa il 95% di danni in meno.",0,"Il dato riguarda le sostanze emesse, non i danni o il rischio."],
+["Io personalmente penso di sì.",0,"Mai opinioni personali."]]},
+{c:"E mi aiuta a smettere?",o:[
+["No, non è un prodotto per smettere di fumare. Se vuole smettere, il suo medico è la persona giusta.",1,"Esatto."],
+["Sì, piano piano scala la nicotina.",0,"Non è un prodotto per smettere."],
+["Dipende dalla forza di volontà.",0,"Non è un prodotto per smettere: rimanda al medico."]]},
+{c:"Un'ultima cosa: mia moglie è incinta e fuma, per lei va bene?",o:[
+["Su questo il consiglio giusto può darglielo solo il medico. Io posso darle informazioni sui prodotti.",1,"Massima sensibilità, rimandi al medico, nessuna opinione."],
+["Sì, meglio di niente.",0,"Mai dare consigli sanitari."],
+["Assolutamente no.",0,"Nemmeno questo è tuo da dire: rimanda al medico."]]}]},
+
+{n:"Cliente VEEV con problemi",d:"Troubleshooting vaping",s:[
+{c:"Il mio VEEV ONE lampeggia rosso e bianco.",o:[
+["È il segnale di liquido basso: provi a tenerlo in posizione verticale, e se serve cambi il pod.",1,"Rosso e bianco = liquido basso."],
+["È scarico, va messo in carica.",0,"Scarico = lampeggio bianco senza vapore."],
+["È rotto, va in garanzia.",0,"Prima il troubleshooting."]]},
+{c:"Posso usare i pod del VEEV inPRIME di mio cugino?",o:[
+["No, i pod non sono intercambiabili: il VEEV inPRIME usa i pod ACCENTS, il VEEV ONE i suoi.",1,"Esatto."],
+["Sì, sono uguali.",0,"Non sono intercambiabili."],
+["Sì, ma durano meno.",0,"Non sono intercambiabili."]]},
+{c:"E se fa freddo e non esce vapore?",o:[
+["Lampeggio bianco senza vapore: può essere scarico oppure la temperatura è sotto 0° o sopra 30°. Controlli anche che i fori d'aria laterali non siano ostruiti.",1,"Risposta completa."],
+["Lo scaldi sul termosifone.",0,"Mai."],
+["Con il freddo non funziona mai.",0,"Funziona tra 0° e 30°."]]}]},
+
+{n:"Cliente ILUMA preoccupato per la batteria",d:"FlexBattery solo se chiede",s:[
+{c:"Ho paura che la batteria del mio ILUMA i PRIME si rovini col tempo.",o:[
+["Allora le serve la FlexBattery: dall'App IQOS può attivare la modalità Eco, che preserva la batteria nel tempo. In cambio fa 1 utilizzo per carica dell'holder e senza Pause Mode.",1,"Ora è giusto parlarne: l'ha chiesto lui."],
+["Non si preoccupi, dura per sempre.",0,"Non inventare: c'è la modalità Eco."],
+["Deve comprarne uno nuovo ogni anno.",0,"Falso."]]},
+{c:"E normalmente quanti utilizzi di fila posso fare?",o:[
+["In modalità Performance, quella di default, fino a 3 utilizzi di fila, oppure 2 se usa la Pause Mode.",1,"Esatto."],
+["Uno solo.",0,"Uno solo è in modalità Eco."],
+["Infiniti.",0,"Fino a 3 consecutivi."]]}]}
+];
+
+const VOCE=[
+["(Ragazza, sembra 25 anni) Ciao, quanto costa l'ILUMA?","Ciao, benvenuta! Prima di tutto ti chiedo un documento, lo chiediamo a chi sembra sotto i 35. Poi ti spiego tutto volentieri.",["Saluto","Documento prima di dare informazioni","Tono gentile"]],
+["Io fumo da 30 anni, queste cose tecnologiche non fanno per me.","La capisco. Cosa le piace della sua sigaretta? Abbiamo BONDS: gusto di tabacco autentico, nessun limite di tiri, inserisce lo stick e preme il tasto, niente pulizia, Blends a 4,50€.",["Domanda di intervista","BONDS + Blends","Semplicità e niente pulizia","Prezzo 4,50€"]],
+["Che differenza c'è tra ILUMA i PRIME, MID e ONE?","PRIME 89€, in alluminio, con touch screen e Pause Mode. MID 59€, con touch screen e Pause Mode. ONE 29€, corpo unico, accensione automatica. Tutti con Smartcore, senza pulizia.",["Tre prezzi","Touch e Pause su PRIME e MID","ONE corpo unico","Niente pulizia"]],
+["Ma fa meno male?","La scelta migliore è non fumare. Le alternative senza combustione emettono in media il 95% in meno di sostanze dannose, che non vuol dire 95% di rischio in meno. Per approfondire: il medico e pmiscience.com.",["Scelta migliore: non fumare","95% sostanze, non rischio","Nessuna opinione personale","Medico / pmiscience.com"]],
+["Non fumo, ma volevo provarlo per curiosità.","Grazie della sincerità. Ti dico con trasparenza che gli stick contengono nicotina, che crea dipendenza. Sono pensati per chi fuma, quindi non ti propongo la prova.",["Chiedi il motivo","Nicotina = dipendenza","Nessuna prova"]],
+["Perché dovrei comprare ILUMA se ho già un altro scalda-tabacco?","Con ILUMA i non c'è lamina: l'elemento riscaldante è dentro lo stick e si scalda a induzione. Niente pulizia, niente stick rotti. E con le DELIA a 5€ il prezzo resta contenuto.",["Smartcore induction","Niente lamina, niente pulizia","DELIA come stick"]],
+["Cos'è LEVIA?","Sono stick senza tabacco, con ingredienti di origine vegetale e nicotina, gusti mentolati e fruttati, 5,50€. Il pacchetto in alluminio mantiene la freschezza: una volta aperto va finito entro 7 giorni.",["Senza tabacco","Con nicotina","Gusti freschi e fruttati","5,50€"]],
+["Il mio holder lampeggia giallo.","Il giallo vuol dire che l'holder è scarico: lo metta nel caricatore per ricaricarlo.",["Giallo = scarico","Ricarica nel caricatore"]],
+["Posso caricarlo in macchina?","Lo sconsigliamo; meglio un alimentatore da parete, che non è incluso nella confezione.",["Sconsigliato in auto","Alimentatore non incluso"]],
+["Cosa sono questi badge dell'IQOS CLUB?","Si guadagnano nella community, comprando ILUMA i o facendo check-in agli eventi. Diventano voucher sconto da usare su iqos.com e su The Collection, come Feltrinelli, Zalando e Q8, fino a 75€.",["Tre modi per guadagnarli","Voucher","The Collection","Max 75€"]],
+["In ufficio non posso fumare per tutto il giorno.","Per quei momenti c'è ZYN: bustine di nicotina da tenere tra labbro e gengiva, senza fumo né vapore. Le propongo di provarne una con me, una Mini da 3 mg.",["ZYN complementare","Come si usa","Prova guidata"]],
+["Ho comprato il VEEV ONE, che manutenzione serve?","Nessuna: si cambia solo il pod. Si ricarica in meno di 45 minuti e fa circa 1000 tiri. Le ricordo che i pod non sono compatibili con il VEEV inPRIME.",["Niente manutenzione","Si cambia il pod","Pod non intercambiabili"]],
+["Presentati e raccontami cos'è PMI in 30 secondi.","PMI vende in oltre 180 paesi e ha l'obiettivo di un futuro senza fumo: la scelta migliore è non fumare, ma per chi continuerebbe offre alternative senza combustione, come IQOS che scalda lo stick a induzione senza bruciarlo.",["Futuro senza fumo","Scelta migliore non fumare","Alternative per chi continuerebbe","Scalda, non brucia"]],
+["Lo compro per mio figlio di 17 anni.","Mi dispiace, non posso vendere se l'acquisto è per un minorenne.",["Rifiuto chiaro","Gentile ma fermo"]]
+];
+
+const QUIZ=[
+["Quando chiedi il documento?",["Prima di dare qualsiasi informazione, se sembra sotto i 35","Al momento del pagamento","Solo se sembra minorenne"],"Il controllo età viene prima di tutto."],
+["Quale documento NON è valido?",["Foto della carta d'identità","Patente su App IO","Passaporto"],"Foto e screenshot non valgono."],
+["Il cliente è adulto, l'amico sembra 22enne. Chi deve mostrare il documento?",["L'amico","Il cliente","Nessuno"],"Anche l'accompagnatore sotto i 35."],
+["Prodotto per un Rooted LAS?",["BONDS + Blends","ILUMA i PRIME + LEVIA","VEEV inPRIME"],"Gusto autentico, prezzo basso, semplicità."],
+["Prodotto per un Experience Explorer?",["LEVIA","Blends","DELIA"],"Giovane e curioso: LEVIA, gusti freschi e fruttati."],
+["Quanto costa un pacchetto di DELIA?",["5,00€","5,50€","4,50€"],"TEREA e LEVIA 5,50€, Blends 4,50€."],
+["Prezzo di ILUMA i ONE?",["29€","59€","89€"],"PRIME 89€, MID 59€, ONE 29€."],
+["Come scalda BONDS?",["Dall'esterno (RoundHeat)","Dall'interno a induzione","Con una lamina"],"BONDS scalda dall'esterno e va solo con le Blends."],
+["Dov'è l'elemento riscaldante con ILUMA i?",["Dentro lo stick","Nel dispositivo","Non c'è"],"Smartcore: elemento in acciaio dentro lo stick."],
+["Holder ILUMA con luce rossa lampeggiante:",["Holder nel caricatore e reset del caricatore","È scarico","Temperatura fuori range"],"Giallo = scarico, bianco doppio = temperatura."],
+["Quando parli della FlexBattery?",["Solo se il cliente chiede della batteria","Sempre","Mai"],"È un argomento reattivo."],
+["Utilizzi consecutivi in modalità Performance con Pause Mode?",["2","3","1"],"3 senza pausa, 2 con pausa, 1 in Eco."],
+["Un utilizzo di ILUMA dura:",["14 tiri o 6 minuti","Senza limiti","5 minuti senza limiti di tiri"],"Senza limite di tiri è BONDS."],
+["Soddisfatti o rimborsati: entro quanto?",["30 giorni, nuovo cliente","3 giorni","14 giorni"],"Il cambio entro 3 giorni non si propone."],
+["Il dispositivo non è registrato a nome del cliente:",["Serve telefono o email dell'intestatario","Non si può fare assistenza","Deve venire l'intestatario"],"Basta il dato dell'intestatario."],
+["ZYN Regular contiene:",["11 mg, bustina umida, rilascio immediato","3 mg, bustina asciutta","1,5 mg"],"Mini: 1,5 / 3 / 6 mg, asciutte, graduali."],
+["Per quanto si tiene una bustina ZYN?",["Da 5 fino a 30 minuti","2 ore","1 minuto"],"Il formicolio è normale."],
+["I pod di VEEV ONE e VEEV inPRIME:",["Non sono intercambiabili","Sono uguali","Funzionano con adattatore"],"inPRIME usa i pod ACCENTS."],
+["VEEV ONE lampeggia rosso e bianco:",["Liquido basso","Batteria scarica","Errore di sistema"],"Tenerlo dritto."],
+["\"95% in meno\" si riferisce a:",["Sostanze dannose emesse","Rischio per la salute","Nicotina"],"Non è il 95% di rischio in meno."],
+["Un non fumatore vuole provarlo:",["Spieghi la nicotina e non proponi la prova","Gli fai fare una Guided Trial","Gli proponi ZYN"],"Pensati per chi fuma."],
+["Porta un amico: quanto ricevono?",["5€ di buono Q8 a testa, max 5 amici","10€ di sconto","Un pacchetto gratis"],"Inviti fino al 9/12, acquisto e registrazione entro il 15/12."],
+["Valore massimo dei voucher IQOS CLUB?",["75€","25€","100€"],"Badge → voucher su iqos.com e The Collection."],
+["Mamma con figlio di 15 anni che non può tornare:",["Eccezionalmente entrano, senza Guided Trial in corso","Non possono entrare mai","Entrano e il figlio prova"],"Nel dubbio: responsabile."],
+["Quale tecnologia è obsoleta e va pulita?",["Quella a lamina (IQOS 3 Duo, 2.4)","Smartcore","RoundHeat"],"Le vecchie avevano la lamina."]
+];
+
+const $=s=>document.querySelector(s);
+const shuf=a=>a.map(x=>[Math.random(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);
+const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on',x==b));
+  document.querySelectorAll('main section').forEach(s=>s.hidden=s.id!=b.dataset.t);
+  scrollTo(0,0);
+});
+
+// Mostra una domanda con opzioni; done(giusta) quando si risponde
+function ask(el,opts,done){
+  el.innerHTML='';
+  shuf(opts).forEach(([t,ok,fb])=>{
+    const b=document.createElement('button');
+    b.textContent=t;
+    b.onclick=()=>{
+      [...el.children].forEach(x=>x.disabled=true);
+      b.classList.add(ok?'ok':'ko');
+      if(!ok)[...el.children].find(x=>x.dataset.ok)?.classList.add('ok');
+      el.insertAdjacentHTML('beforeend',`<div class="fb ${ok?'ok':'ko'}"><b>${ok?'Giusto!':'Non proprio.'}</b> ${esc(fb)}</div>`);
+      done(ok,fb);
+    };
+    if(ok)b.dataset.ok=1;
+    el.append(b);
+  });
+}
+
+function rpList(){
+  $('#rp').innerHTML='<p class="mu">Sei la consulente in store. Scegli la risposta migliore a ogni battuta del cliente. Le opzioni cambiano ordine ogni volta.</p><div class="list">'+
+    SC.map((s,i)=>`<button onclick="rpGo(${i})"><b>${s.n}</b><br><small>${s.d}</small></button>`).join('')+'</div>';
+}
+function rpGo(i,k=0,pt=0,err=[]){
+  const s=SC[i],st=s.s[k];
+  $('#rp').innerHTML=`<p class="mu">${s.n} · passo ${k+1} di ${s.s.length}</p><div class="cl">${esc(st.c)}</div><div class="opts"></div>`;
+  ask($('#rp .opts'),st.o.map(o=>[o[0],o[1],o[2]]),(ok,fb)=>{
+    if(ok)pt++;else err.push(fb);
+    const n=document.createElement('button');n.className='pri';
+    n.textContent=k+1<s.s.length?'Avanti':'Vedi risultato';
+    n.onclick=()=>k+1<s.s.length?rpGo(i,k+1,pt,err):rpEnd(i,pt,err);
+    $('#rp .opts').append(n);
+  });
+  scrollTo(0,0);
+}
+function rpEnd(i,pt,err){
+  const t=SC[i].s.length;
+  $('#rp').innerHTML=`<div class="card"><h2>${pt} su ${t}</h2><p>${pt==t?'Perfetta, interazione da manuale!':'Ecco cosa ripassare:'}</p>${err.length?'<ul>'+err.map(e=>`<li>${esc(e)}</li>`).join('')+'</ul>':''}</div>
+  <button class="pri" onclick="rpGo(${i})">Rifai questo</button>
+  <button class="pri" onclick="rpGo(${(i+1)%SC.length})">Prossimo scenario</button>
+  <button class="pri" onclick="rpList()">Tutti gli scenari</button>`;
+}
+rpList();
+
+let tm;
+function voce(){
+  clearInterval(tm);
+  const [c,m,k]=VOCE[Math.floor(Math.random()*VOCE.length)];
+  let s=45;
+  $('#voce').innerHTML=`<p class="mu">Leggi la battuta e rispondi <b>ad alta voce</b> come se fossi in store. Poi confronta con la risposta modello.</p>
+  <div class="cl">${esc(c)}</div><div class="timer" id="tt">${s}</div>
+  <button class="pri" id="sh">Mostra risposta modello</button><div id="mod"></div>`;
+  tm=setInterval(()=>{s--;$('#tt').textContent=s>0?s:'Tempo!';if(s<=0)clearInterval(tm)},1000);
+  $('#sh').onclick=()=>{
+    clearInterval(tm);$('#sh').remove();
+    $('#mod').innerHTML=`<div class="card"><h2>Risposta modello</h2><p>${esc(m)}</p><h2>Hai detto...</h2>${k.map(x=>`<label><input type="checkbox"> ${esc(x)}</label>`).join('')}</div><button class="pri" onclick="voce()">Prossima battuta</button>`;
+  };
+}
+voce();
+
+function quiz(){
+  const q=shuf(QUIZ).slice(0,10);let i=0,pt=0;
+  (function next(){
+    if(i==q.length){
+      $('#quiz').innerHTML=`<div class="card"><h2>${pt} su ${q.length}</h2><p>${pt>=8?'Ottimo!':'Ripassa il bigino e riprova.'}</p></div><button class="pri" onclick="quiz()">Nuovo quiz</button>`;
+      return;
+    }
+    const [d,o,s]=q[i];
+    $('#quiz').innerHTML=`<p class="mu">Domanda ${i+1} di ${q.length}</p><div class="card"><b>${esc(d)}</b></div><div class="opts"></div>`;
+    ask($('#quiz .opts'),o.map((t,j)=>[t,j==0,s]),ok=>{
+      if(ok)pt++;i++;
+      const n=document.createElement('button');n.className='pri';n.textContent='Avanti';n.onclick=next;
+      $('#quiz .opts').append(n);
+    });
+  })();
+}
+quiz();
+</script>
+</body>
+</html>
