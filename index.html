@@ -42,7 +42,7 @@ h3{font-size:15px;margin:16px 0 8px}
 <header>
 <h1>Allenamento colloquio IQOS</h1>
 <nav>
-<button data-t="guida" class="on">Guida</button>
+<button data-t="col" class="on">Colloquio</button>
 <button data-t="rp">Role play</button>
 <button data-t="voce">A voce</button>
 <button data-t="quiz">Quiz</button>
@@ -50,32 +50,12 @@ h3{font-size:15px;margin:16px 0 8px}
 </nav>
 </header>
 <main>
-<section id="guida">
-<div class="card how"><h2>Ciao Noemi! 👋</h2>
-<p>Questo è il tuo allenamento per il colloquio di domani. Funziona anche senza internet e non serve registrarsi.</p>
-<p>Nel colloquio farai un <b>role play</b>: tu sei la consulente in store, il selezionatore fa il cliente. Qui ti alleni a portare ogni cliente dall'ingresso fino all'acquisto.</p></div>
-<div class="card"><h2>Le 4 sezioni, in quest'ordine</h2><ul>
-<li><b>Role play</b>: entra un cliente e tu scegli cosa dire, passo dopo passo, dal saluto alla registrazione. Alla fine vedi in quali fasi hai sbagliato e perché.</li>
-<li><b>A voce</b>: leggi la battuta del cliente e rispondi <b>ad alta voce</b>, come se fosse vero. Poi guardi la risposta modello e spunti cosa hai detto. È l'esercizio più simile al colloquio.</li>
-<li><b>Quiz</b>: 10 domande veloci su prezzi, prodotti e regole.</li>
-<li><b>Bigino</b>: tutti gli appunti in breve, da rileggere prima di entrare.</li></ul></div>
-<div class="card"><h2>Le 6 fasi di ogni vendita</h2><ol>
-<li><b>Accoglienza</b>: saluta, sorridi, presentati.</li>
-<li><b>Controllo età</b>: se sembra sotto i 35 anni (anche chi accompagna), chiedi il documento <u>prima</u> di dire qualsiasi cosa sul prodotto.</li>
-<li><b>Intervista</b>: fa domande. Cosa fuma, quanto, cosa gli piace, cosa conta per lui: gusto, prezzo, semplicità, design?</li>
-<li><b>Proposta</b>: il prodotto giusto per quel cliente.</li>
-<li><b>Dimostrazione e obiezioni</b>: spiega come si usa e rispondi ai dubbi senza mollare.</li>
-<li><b>Chiusura</b>: acquisto, registrazione all'IQOS CLUB, come si usa.</li></ol>
-<p class="mu">Se il cliente è un non fumatore, un minorenne o non ha il documento valido, la vendita si ferma. Ci sono casi apposta per allenarti.</p></div>
-<div class="card"><h2>Consiglio per domani mattina</h2>
-<p>2 vendite complete nel Role play, 5 battute A voce, un Quiz, poi rileggi il Bigino. In tutto circa 20 minuti.</p></div>
-<button class="pri" onclick="document.querySelector('[data-t=rp]').click()">Inizia dal Role play</button>
-</section>
+<section id="col"></section>
 <section id="rp" hidden></section>
 <section id="voce" hidden></section>
 <section id="quiz" hidden></section>
 <section id="big" hidden>
-<div class="card how"><b>Come funziona:</b> tocca un titolo per aprirlo. Rileggilo domattina prima del colloquio.</div>
+<div class="card how"><b>A cosa serve:</b> ripasso veloce prima di entrare al colloquio.<br><b>Come funziona:</b> tocca un titolo per aprirlo.<br><b>Com'è fatta:</b> si parte dal percorso di vendita, poi le regole sull'età, i prodotti, il post vendita e la salute.</div>
 <details open><summary>Il percorso di vendita</summary><ul>
 <li><b>Accoglienza</b>, sorriso, presentati.</li>
 <li><b>YAP prima di tutto</b>: se sembra sotto i 35 anni chiedi il documento, <u>prima</u> di dare qualsiasi informazione.</li>
@@ -494,41 +474,59 @@ function ask(el,opts,done){
   });
 }
 
-function rpList(){
-  const b=(f)=>SC.map((s,i)=>f(s)?`<button onclick="rpGo(${i})"><b>${s.n}</b><br><small>${s.d}</small></button>`:'').join('');
-  $('#rp').innerHTML=`<div class="card how"><b>Come funziona:</b> sei la consulente. Leggi cosa dice il cliente e tocca la risposta migliore. Sotto ogni scelta vedi se è giusta e perché. In alto c'è la fase della vendita in cui ti trovi.</div>
-  <h3>Vendite complete, dall'ingresso alla registrazione</h3><div class="list">${b(s=>s.v)}</div>
-  <h3>Casi difficili, in cui la vendita si ferma o è assistenza</h3><div class="list">${b(s=>!s.v)}</div>`;
+const FASI=`<details><summary>Le 6 fasi di ogni vendita</summary><ol>
+<li><b>Accoglienza</b>: saluta, sorridi, presentati.</li>
+<li><b>Controllo età</b>: se sembra sotto i 35 anni (anche chi accompagna), documento <u>prima</u> di qualsiasi informazione.</li>
+<li><b>Intervista</b>: cosa fuma, quanto, cosa gli piace, cosa conta per lui (gusto, prezzo, semplicità, design).</li>
+<li><b>Proposta</b>: il prodotto giusto per quel cliente.</li>
+<li><b>Dimostrazione e obiezioni</b>: come si usa, e risposte ai dubbi senza mollare.</li>
+<li><b>Chiusura</b>: acquisto, registrazione IQOS CLUB, come si usa.</li></ol></details>`;
+// Colloquio: clienti a caso, solo vendite complete, uno dopo l'altro
+const FULL=SC.map((s,i)=>s.v?i:-1).filter(i=>i>=0);
+let colN=0,colLast=-1;
+function colNext(){
+  let i;do i=FULL[Math.floor(Math.random()*FULL.length)];while(i==colLast&&FULL.length>1);
+  colLast=i;colN++;go('col',i);
 }
-function rpGo(i,k=0,res=[]){
-  const s=SC[i],st=s.s[k];
-  $('#rp').innerHTML=`<p class="mu"><b>${s.n}</b> · passo ${k+1} di ${s.s.length}</p><div class="bar">${s.s.map((_,j)=>`<i class="${j<=k?'d':''}"></i>`).join('')}</div>
+function rpList(){
+  const b=f=>SC.map((s,i)=>f(s)?`<button onclick="go('rp',${i})"><b>${s.n}</b><br><small>${s.d}</small></button>`:'').join('');
+  $('#rp').innerHTML=`<div class="card how"><b>A cosa serve:</b> ripassare un cliente o un caso preciso, scegliendolo tu.<br><b>Come funziona:</b> tocca un cliente, leggi cosa dice e tocca la risposta migliore. Sotto ogni scelta vedi se è giusta e perché.<br><b>Com'è fatta:</b> sopra ci sono le vendite complete, dall'ingresso alla registrazione. Sotto ci sono i casi difficili: minorenni, documenti non validi, non fumatori, assistenza, salute.</div>${FASI}
+  <h3>Vendite complete</h3><div class="list">${b(s=>s.v)}</div>
+  <h3>Casi difficili</h3><div class="list">${b(s=>!s.v)}</div>`;
+}
+const INTRO={
+ col:()=>`<div class="card how"><b>A cosa serve:</b> è la prova generale del colloquio. Un cliente entra in negozio e tu lo segui dall'inizio alla fine, senza scegliere niente prima.<br><b>Come funziona:</b> a ogni battuta del cliente tocca la risposta migliore. Sotto vedi se è giusta e perché. Alla fine trovi il risultato fase per fase, poi entra un altro cliente.<br><b>Com'è fatta:</b> ogni cliente passa per le fasi della vendita, segnate nell'etichetta blu.</div>${FASI}`,
+ rp:()=>''};
+function go(sec,i,k=0,res=[]){
+  const s=SC[i],st=s.s[k],el=$('#'+sec);
+  el.innerHTML=`${k?'':INTRO[sec]()}<p class="mu"><b>${sec=='col'?'Cliente n° '+colN+' · ':''}${s.n}</b> · passo ${k+1} di ${s.s.length}</p><div class="bar">${s.s.map((_,j)=>`<i class="${j<=k?'d':''}"></i>`).join('')}</div>
   ${k?'':`<div class="card mu">${esc(s.chi)}</div>`}<span class="tag">${st.p}</span><p class="mu">Il cliente dice:</p><div class="cl">${esc(st.c)}</div><p class="mu">Cosa rispondi?</p><div class="opts"></div>`;
-  ask($('#rp .opts'),st.o,(ok,fb)=>{
+  const o=el.querySelector('.opts');
+  ask(o,st.o,(ok,fb)=>{
     res.push([st.p,ok,fb]);
     const n=document.createElement('button');n.className='pri';
     n.textContent=k+1<s.s.length?'Avanti':'Vedi com\'è andata';
-    n.onclick=()=>k+1<s.s.length?rpGo(i,k+1,res):rpEnd(i,res);
-    $('#rp .opts').append(n);
+    n.onclick=()=>k+1<s.s.length?go(sec,i,k+1,res):end(sec,i,res);
+    o.append(n);
   });
+  if(k)scrollTo(0,0);
+}
+function end(sec,i,res){
+  const pt=res.filter(r=>r[1]).length,t=res.length;
+  $('#'+sec).innerHTML=`<div class="card"><h2>${SC[i].n}: ${pt} su ${t} ${pt==t?'· Perfetta! 🎉':''}</h2>
+  ${res.map(([p,ok,fb])=>`<p>${ok?'✅':'❌'} <b>${p}</b>${ok?'':'<br><span class="mu">'+esc(fb)+'</span>'}</p>`).join('')}</div>`+
+  (sec=='col'?`<button class="pri" onclick="colNext()">Entra il prossimo cliente</button><button class="pri" onclick="go('col',${i})">Rifai questo cliente</button>`
+  :`<button class="pri" onclick="go('rp',${i})">Rifai questo</button><button class="pri" onclick="rpList()">Torna all'elenco</button>`);
   scrollTo(0,0);
 }
-function rpEnd(i,res){
-  const pt=res.filter(r=>r[1]).length,t=res.length;
-  $('#rp').innerHTML=`<div class="card"><h2>${pt} su ${t} ${pt==t?'· Perfetta! 🎉':''}</h2>
-  ${res.map(([p,ok,fb])=>`<p>${ok?'✅':'❌'} <b>${p}</b>${ok?'':'<br><span class="mu">'+esc(fb)+'</span>'}</p>`).join('')}</div>
-  <button class="pri" onclick="rpGo(${i})">Rifai questo cliente</button>
-  <button class="pri" onclick="rpGo(${(i+1)%SC.length})">Prossimo cliente</button>
-  <button class="pri" onclick="rpList()">Tutti i clienti</button>`;
-}
-rpList();
+rpList();colNext();
 
 let tm;
 function voce(){
   clearInterval(tm);
   const [c,m,k]=VOCE[Math.floor(Math.random()*VOCE.length)];
   let s=45;
-  $('#voce').innerHTML=`<div class="card how"><b>Come funziona:</b> leggi la battuta e rispondi <b>ad alta voce</b> entro 45 secondi, come se il cliente fosse davanti a te. Poi tocca "Mostra risposta modello" e spunta le cose che hai detto. Se ne manca qualcuna, ripeti la risposta completa.</div>
+  $('#voce').innerHTML=`<div class="card how"><b>A cosa serve:</b> allenarti a parlare, perché al colloquio non ci sono risposte da scegliere.<br><b>Come funziona:</b> leggi la battuta e rispondi <b>ad alta voce</b> entro 45 secondi, come se il cliente fosse davanti a te. Poi tocca "Mostra risposta modello" e spunta le cose che hai detto. Se ne manca qualcuna, ripeti la risposta completa.<br><b>Com'è fatta:</b> una battuta alla volta, a caso, con un timer di 45 secondi.</div>
   <div class="cl">${esc(c)}</div><div class="timer" id="tt">${s}</div>
   <button class="pri" id="sh">Mostra risposta modello</button><div id="mod"></div>`;
   tm=setInterval(()=>{s--;$('#tt').textContent=s>0?s:'Tempo!';if(s<=0)clearInterval(tm)},1000);
@@ -547,7 +545,7 @@ function quiz(){
       return;
     }
     const [d,o,s]=q[i];
-    $('#quiz').innerHTML=`${i?'':'<div class="card how"><b>Come funziona:</b> 10 domande a caso tra prezzi, prodotti e regole. Ogni volta che premi "Nuovo quiz" ne escono altre.</div>'}<p class="mu">Domanda ${i+1} di ${q.length}</p><div class="card"><b>${esc(d)}</b></div><div class="opts"></div>`;
+    $('#quiz').innerHTML=`${i?'':'<div class="card how"><b>A cosa serve:</b> fissare in testa prezzi, prodotti e regole.<br><b>Come funziona:</b> tocca la risposta giusta tra le tre. Sotto vedi la spiegazione.<br><b>Com\'è fatta:</b> 10 domande a caso. Con "Nuovo quiz" ne escono altre.</div>'}<p class="mu">Domanda ${i+1} di ${q.length}</p><div class="card"><b>${esc(d)}</b></div><div class="opts"></div>`;
     ask($('#quiz .opts'),o.map((t,j)=>[t,j==0,s]),ok=>{
       if(ok)pt++;i++;
       const n=document.createElement('button');n.className='pri';n.textContent='Avanti';n.onclick=next;
